@@ -387,7 +387,7 @@ class FormWizard(object):
 @colander.deferred
 def deferred_csrf_value(node, kw):
     if PY3:
-        return kw['request'].session.get_csrf_token()
+        return kw['request'].session.get_csrf_token().decode()
     else:
         return kw['request'].session.get_csrf_token()
 
